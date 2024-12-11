@@ -1,0 +1,48 @@
+server:
+  port: 8081
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb;NON_KEYWORDS=user
+    driver-class-name: org.h2.Driver
+    username: "sa"
+    password: ""
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+  jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+  application:
+    name: vpn-bot-telegram
+  boot:
+    admin:
+      client:
+        url:
+        enabled: true
+        auto-registration: true
+        instance:
+          name: ${spring.application.name}
+          prefer-ip: true
+          metadata:
+            user.name:
+            user.password:
+        username:
+        password:
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+bot:
+  name: Vp bot
+  token: 7576303598:AAHr8ApZOctKShYorDwuQEiP9ve4ByTgHM8
+integration:
+  token-uri: /token
+  client-uri: /api/c
+  prime-token: mdyviq4huphpBZR8WTVg5s2kKVdRXP27vMseL0PB5i28isaiBk62LxpFybvetY8BggCytDFIxpjBTj1PUWBLFQdd3JeBdGe6DtOQH3H9JoXCG5
+payments:
+  tg-payment: 381764678:TEST:100337
